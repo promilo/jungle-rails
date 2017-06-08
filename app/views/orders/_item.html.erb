@@ -1,0 +1,23 @@
+<article class="item">
+  <% @products = Product.find(product_id) %>
+  <% item_total = @products.price * quantity %>
+  <% @orderTotal += item_total %>
+
+  <tr>
+    <td>
+      <%= @products.name %>
+    </td>
+    <td>
+      <img src=" <%= @products.image %>" width = 25%/>
+    </td>
+    <td>
+      <%= @products.description %>
+    </td>
+    <td>
+      <%= quantity %>
+    </td>
+    <td>
+      <%= @products.price %>
+  </tr>
+
+</article>
