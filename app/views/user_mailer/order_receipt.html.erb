@@ -1,0 +1,12 @@
+
+Welcome to example.com,
+===============================================
+<% @order_Total = 0 %>
+<% @order.line_items.each do |item|%>
+   <p> <%= item.product.name %> </p>
+   <p> <%=item.product.price %> </p>
+   <% @products = Product.find(item.product_id) %>
+   <% item_total = item.product.price * item.product.quantity %>
+   <% @order_Total += item_total %>
+<% end %>
+total = <%=@order_Total %>
