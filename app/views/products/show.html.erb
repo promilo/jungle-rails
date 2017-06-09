@@ -26,6 +26,31 @@
       </div>
     </div>
 
+    <%= form_for [@product, Review.new], url: product_reviews_path(@product) do |f| %>
+      <%= f.text_area :description, size: "60x12" %>
+      <%= f.select :rating, options_for_select(["1", "2", "3", "4", "5"]) %>
+      <%= f.submit "Create" %>
+    <% end %>
+    <table>
+      <tr>
+        <td>
+          <b> NAME </b>
+        </td>
+        <td>
+        <b> Description </b>
+        </td>
+        <td>
+          <b> rating </b>
+        </td>
+        <td>
+          <b> time </b>
+        </td>
+      </tr>
+      <% @product.reviews.reverse_each do |review| %>
+          <%= render 'review', review: review, user: review.user %>
+      <% end %>
+    </table>
+
   </article>
 
 </section>

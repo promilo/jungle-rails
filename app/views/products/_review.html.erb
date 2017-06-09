@@ -1,0 +1,23 @@
+<article class="review">
+
+  <tr>
+    <td>
+      <%= user.first_name %>  <%= user.last_name %>
+    </td>
+    <td>
+      <%= review.description%>
+    </td>
+    <td>
+      <%= review.rating %>
+    </td>
+    <td>
+      <%= review.created_at %>
+    </td>
+    <% if current_user == user %>
+      <td>
+        <%= link_to "Delete", product_review_path(@product.id,review.id), method: :delete %>
+      </td>
+    <% end %>
+  </tr>
+
+</article>

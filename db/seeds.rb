@@ -29,11 +29,14 @@ cat1 = Category.find_or_create_by! name: 'Apparel'
 cat2 = Category.find_or_create_by! name: 'Electronics'
 cat3 = Category.find_or_create_by! name: 'Furniture'
 
+
 ## PRODUCTS
 
 puts "Re-creating Products ..."
 
 Product.destroy_all
+
+
 
 cat1.products.create!({
   name:  'Men\'s Classy shirt',
@@ -131,6 +134,30 @@ cat3.products.create!({
   quantity: 23,
   price: 2_483.75
 })
+
+## USERS
+
+## reviews
+
+prod1 = Product.find_or_create_by! name: 'Men\'s Classy shirt'
+user1 = User.find_or_create_by! first_name: "Arjun", last_name: "loll", email: "1@as.com", password_digest: "12412423"
+user2 = User.find_or_create_by! first_name: "Raymond", last_name: "Chow", email: "1@se.com", password_digest: "se"
+
+Review.create!({
+  product: prod1,
+  user: user1,
+  description: "232423",
+  rating: 1
+  })
+
+Review.create!({
+  product: prod1,
+  user: user2,
+  description: "I want to buy this",
+  rating: 5
+  })
+
+
 
 
 puts "DONE!"
